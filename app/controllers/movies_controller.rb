@@ -7,18 +7,6 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @all_ratings = ['G','PG','PG-13','R']
-    @ratings_to_show_hash = []
-    @movies = Movie.all
-    if params[:ratings]
-      @ratings_to_show_hash = params[:ratings].keys
-      @movies = Movie.with_ratings params[:ratings].keys
-    end
-    
-    
-  end
-
-  def index
     sort = params[:sort] || session[:sort]
     case sort
     when 'title'
